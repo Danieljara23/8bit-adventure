@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ancientDoor from '../assets/ancient_door.svg'
 ---
 <style>
   .container {
@@ -25,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout title='Portón del templo' theme="dark">
   <div class="container">
     <div class="image-wrapper">
-      <img src="./src/assets/ancient_door.svg" alt="Puerta de una templo">
+      <img src={ancientDoor.src} alt="Puerta de una templo">
     </div>
     <div class="clue-wrapper">
       <p>Inspecciona detenidamente para abrir la puerta del templo</p>
@@ -34,7 +35,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 <script>
   window.toctoc = function toctoc(){
-    window.location.href = '/clock'
+    window.location.href = '/8bit-adventure/clock'
   }
   console.clear()
   let msg = "%c Bienvenid@ 👋! Para abrir la puerta solo debes llamar toctoc"; 

@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import image2 from '../assets/Imagen2.png';
+import image1 from '../assets/Imagen1.png';
+import image3 from '../assets/Imagen3.png';
+import image4 from '../assets/Imagen4.png';
 ---
 <style>
   .container {
@@ -62,16 +66,16 @@ import Layout from '../layouts/Layout.astro';
   <div class="container">
     <div class="cards-container">
       <div class="nes-container card" id="D">
-        <img src="./src/assets/plates1/Imagen4.png" alt="">
+        <img src={image4.src} alt="">
       </div>
       <div class="nes-container card" id="A">
-        <img src="./src/assets/plates1/Imagen1.png" alt="">
+        <img src={image1.src} alt="">
       </div>
       <div class="nes-container card" id="C">
-        <img src="./src/assets/plates1/Imagen3.png" alt="">
+        <img src={image3.src} alt="">
       </div>
       <div class="nes-container card" id="B">
-        <img src="./src/assets/plates1/Imagen2.png" alt="">
+        <img src={image2.src} alt="">
       </div>
     </div>
     <section class="nes-container custom-balloon">
@@ -120,7 +124,7 @@ allCards.forEach(element=>{
       if(currentWord === ANSWER) {
         document.querySelector('.right-answer').classList.remove('hidden')
         setTimeout(()=>{
-          window.location.href = '/elements'
+          window.location.href = '/8bit-adventure/elements'
         }, 5000)
       }else{
         document.querySelector('.wrong-answer').classList.remove('hidden')

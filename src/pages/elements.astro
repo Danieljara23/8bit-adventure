@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Image1 from '../assets/elements/earth.png';
+import Image2 from '../assets/elements/fire.png';
+import Image3 from '../assets/elements/water.png';
+import Image4 from '../assets/elements/wind.png';
 ---
 <style>
   .container {
@@ -71,16 +75,16 @@ import Layout from '../layouts/Layout.astro';
   <div class="container">
     <div class="cards-container">
       <div class="card" id="D">
-        <img src="./src/assets/elements/earth.png" alt="">
+        <img src={Image1.src} alt="">
       </div>
       <div class="card hidden" id="A">
-        <img src="./src/assets/elements/fire.png" alt="">
+        <img src={Image2.src} alt="">
       </div>
       <div class="card hidden" id="C">
-        <img src="./src/assets/elements/water.png" alt="">
+        <img src={Image3.src} alt="">
       </div>
       <div class="card" id="B">
-        <img src="./src/assets/elements/wind.png" alt="">
+        <img src={Image4.src} alt="">
       </div>
     </div>
     <div class="nes-field">
@@ -109,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
     if(rigthAnswers.includes(inputValue)) {
       document.querySelector('.feedback-good').classList.remove('hidden')
       setTimeout(()=>{
-       window.location.href = '/filter'
+       window.location.href = '/8bit-adventure/filter'
       }, 3000)
     }
    })

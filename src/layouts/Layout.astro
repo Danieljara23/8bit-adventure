@@ -1,4 +1,6 @@
 ---
+import sunIcon from '../assets/sun_icon.svg';
+
 interface Props {
   title: string;
 	theme: string
@@ -77,7 +79,7 @@ const { title, theme } = Astro.props;
   <body class={theme}>
 		<nav>
 			<button class="toggle-theme-button">
-				<img src="./src/assets/sun_icon.svg" alt="">
+				<img src={sunIcon.src} alt="">
 			</button>
 		</nav>
     <slot />
