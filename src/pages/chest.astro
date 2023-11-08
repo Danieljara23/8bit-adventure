@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: 100%;
+  }
+  .nes-container {
+    margin-top: 30px;
+  }
+
+  .input-container {
+    display: flex;
+    gap: 5px;
+    align-items:center;
+    margin-top: 60px;
+  }
+
+  .input-container input {
+    height: 28px;
+  }
+
+  .input-container button {
+    background: white;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    border-radius: 2px
+  }
+
+  .right-answer {
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.4s ease-out, height 0.4s ease-out;
+    padding-bottom: 30px;
+  }
+
+  .right-answer.hidden {
+    opacity: 0;
+    height: 0;
+  }
+
+</style>
+
+<Layout title='Puzzle de placas' theme='dark'>
+  <div class="container">
+    <h1>Fin.</h1>
+  </div>
+</Layout>
+<script>
+
+</script>

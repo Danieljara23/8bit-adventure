@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+  }
+  .cards-container {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 200px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .card:nth-child(4) {
+    transform: rotate(180deg)
+  }
+
+  .hidden {
+    display: none; 
+  }
+
+  .input-container {
+    display: flex;
+    gap: 5px;
+    align-items:center;
+    margin-top: 20px;
+  }
+
+  .input-container input {
+    height: 28px;
+  }
+
+  .input-container button {
+    background: white;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    border-radius: 2px
+  }
+  .feedback-good {
+    margin-top: 20px;
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.4s ease-out, height 0.4s ease-out;
+  }
+
+  .feedback-good.hidden {
+    opacity: 0;
+    height: 0;
+  }
+
+</style>
+
+<Layout title='Puzzle de placas' theme='light'>
+  <div class="container">
+    <div class="cards-container">
+      <div class="card" id="D">
+        <img src="./src/assets/elements/earth.png" alt="">
+      </div>
+      <div class="card hidden" id="A">
+        <img src="./src/assets/elements/fire.png" alt="">
+      </div>
+      <div class="card hidden" id="C">
+        <img src="./src/assets/elements/water.png" alt="">
+      </div>
+      <div class="card" id="B">
+        <img src="./src/assets/elements/wind.png" alt="">
+      </div>
+    </div>
+    <div class="nes-field">
+      <label for="riddleinput">Respuesta</label>
+      <input type="text" id="riddleinput" class="nes-input">
+    </div>
+    <section class="nes-container feedback-good hidden">
+      <section class="message-list">
+          <section class="message -right">
+            <!-- Balloon -->
+            <div class="nes-balloon from-right">
+              <p>Buen trabajo</p>
+            </div>
+            <i class="nes-bcrikko"></i>
+          </section>
+        </section>
+      </section>
+    </section>
+  </div>
+</Layout>
+<script>
+  const rigthAnswers = ['2314']
+   document.querySelector('#riddleinput')?.addEventListener('input', (e)=>{
+    const inputValue = e.target.value.toLowerCase()
+
+    if(rigthAnswers.includes(inputValue)) {
+      document.querySelector('.feedback-good').classList.remove('hidden')
+      setTimeout(()=>{
+       window.location.href = '/filter'
+      }, 3000)
+    }
+   })
+</script>

@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4,250px);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background-color: white;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 7px 8px 0px #000000;
+    transition: box-shadow 0.4s ease-out;
+  }
+
+  .card.pressed {
+    box-shadow: 2px 4px 0px #000000;
+    transition: box-shadow 0.4s ease-out;
+  }
+  .custom-balloon {
+    margin-top: 80px;
+  }
+
+  .right-answer {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .right-answer.hidden {
+    opacity: 0;
+  }
+
+  .wrong-answer {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .wrong-answer.hidden {
+    opacity: 0;
+  }
+</style>
+
+<Layout title='Puzzle de placas' theme='light'>
+  <div class="container">
+    <div class="cards-container">
+      <div class="nes-container card" id="D">
+        <img src="./src/assets/plates1/Imagen4.png" alt="">
+      </div>
+      <div class="nes-container card" id="A">
+        <img src="./src/assets/plates1/Imagen1.png" alt="">
+      </div>
+      <div class="nes-container card" id="C">
+        <img src="./src/assets/plates1/Imagen3.png" alt="">
+      </div>
+      <div class="nes-container card" id="B">
+        <img src="./src/assets/plates1/Imagen2.png" alt="">
+      </div>
+    </div>
+    <section class="nes-container custom-balloon">
+      <section class="message-list">
+          <section class="message -right">
+            <!-- Balloon -->
+            <div>
+              <div class="nes-balloon from-right">
+                <p>Psss psss, no le digas a nadie, pero te voy a dar una manito...intenta ABCD</p>
+              </div>
+              <i class="nes-octocat animate"></i>
+            </div>
+            <div>
+              <div class="nes-balloon from-right right-answer hidden">
+                <p>Bien hecho!!! Aunque te dije la mitad de la respuesta jeje</p>
+              </div>
+              <i class="nes-octocat animate right-answer hidden"></i>
+            </div>
+            <div>
+              <div class="nes-balloon from-right wrong-answer hidden">
+                <p>Intenta nuevamente, tengo todo el día, aunque creo que tú no jejej</p>
+              </div>
+              <i class="nes-octocat animate wrong-answer hidden"></i>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
+  </div>
+</Layout>
+<script>
+const allCards = document.querySelectorAll('.card');
+const ANSWER = 'ABCD'
+let currentWord = ''
+let pressedPlates = 0;
+
+allCards.forEach(element=>{
+  element.addEventListener('click', (event)=>{
+    const cardDiv = event.target.closest('div');
+    cardDiv.classList.add('pressed')
+    const pressedLetter = cardDiv.getAttribute('id');
+    pressedPlates+=1;
+    currentWord += pressedLetter;
+
+    if(pressedPlates === 4) {
+      if(currentWord === ANSWER) {
+        document.querySelector('.right-answer').classList.remove('hidden')
+        setTimeout(()=>{
+          window.location.href = '/elements'
+        }, 5000)
+      }else{
+        document.querySelector('.wrong-answer').classList.remove('hidden')
+        setTimeout(()=>{
+          document.querySelector('.wrong-answer').classList.add('hidden')
+        }, 4000)
+        console.log("Intenta de nuevo")
+        removeAllClasses()
+        currentWord = ''
+        pressedPlates = 0
+      }
+    }
+  })
+})
+
+function removeAllClasses(){
+  document.querySelectorAll('.card').forEach((element)=> element.classList.remove('pressed'))
+}
+</script>

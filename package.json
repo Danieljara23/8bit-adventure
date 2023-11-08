@@ -1,0 +1,32 @@
+{
+  "name": "escape-room",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.4",
+    "@chakra-ui/react": "^2.8.1",
+    "@codemirror/language": "^6.9.2",
+    "@codemirror/view": "^6.21.4",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "@uiw/react-textarea-code-editor": "^2.1.9",
+    "astro": "^3.4.0",
+    "codemirror": "^6.0.1",
+    "framer-motion": "^10.16.4",
+    "nes.css": "^2.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1"
+  }
+}

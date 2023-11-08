@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  h1 {
+    font-size: 90px;
+  }
+
+  h1 .dark-text {
+    color: var(--dark-theme-color);
+  }
+
+  h1 .light-text {
+    color: var(--light-theme-color);
+  }
+
+  .input-container {
+    display: flex;
+    gap: 5px;
+    align-items:center;
+  }
+
+  .feedback-good {
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .feedback-good.hidden {
+    opacity: 0;
+  }
+</style>
+
+<Layout title='Tic tac' theme='dark'>
+  <div class="container">
+    <h1>
+      <span class="dark-text">D</span>
+      <span class="light-text">E</span>
+      <span class="dark-text">S</span>
+      <span class="light-text">C</span>
+      <span class="dark-text">U</span>
+      <span class="light-text">B</span>
+      <span class="dark-text">R</span>
+      <span class="light-text">E</span>
+    </h1>
+    <div class="nes-field">
+      <label for="riddleinput">Respuesta</label>
+      <input type="text" id="riddleinput" class="nes-input">
+    </div>
+    <section class="nes-container is-dark feedback-good hidden">
+      <section class="message-list">
+          <section class="message -right">
+            <!-- Balloon -->
+            <div class="nes-balloon from-right is-dark">
+              <p>Wow!!!! Estaba fácil, no? Ahora serás redirigid@ al siguiente reto</p>
+            </div>
+            <i class="nes-bcrikko"></i>
+          </section>
+        </section>
+      </section>
+    </section>
+  </div>
+</Layout>
+<script>
+  const rigthAnswers = ['descubre']
+   document.querySelector('#riddleinput')?.addEventListener('input', (e)=>{
+    const inputValue = e.target.value.toLowerCase()
+
+    if(rigthAnswers.includes(inputValue)) {
+      document.querySelector('.feedback-good').classList.remove('hidden')
+      setTimeout(()=>{
+       window.location.href = '/plates'
+      }, 5000)
+    }
+   })
+</script>

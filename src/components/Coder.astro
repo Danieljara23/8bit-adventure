@@ -1,0 +1,22 @@
+---
+import {EditorState} from "@codemirror/state"
+import {EditorView, keymap} from "@codemirror/view"
+import {defaultKeymap} from "@codemirror/commands"
+
+let startState = EditorState.create({
+  doc: "Hello World",
+  extensions: [keymap.of(defaultKeymap)]
+})
+
+let view = new EditorView({
+  state: startState,
+  parent: 'body'
+})
+---
+
+<div class="container">
+  <textarea name="" id="editor" cols="30" rows="10"></textarea>
+</div>
+<style>
+	
+</style>

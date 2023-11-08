@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+	theme: string
+}
+
+const { title, theme } = Astro.props;
+---
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Bilbo&family=Press+Start+2P&display=swap');
+	@import "../../node_modules/nes.css/css/nes.css";
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+		--dark-theme-color: #13151a;
+		--light-theme-color: white;
+  }
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	html, body {
+		height: 100%;
+
+	}
+  html {
+    background-size: 224px;
+		font-family: "Press Start 2P";
+  }
+
+	body {
+		color: --dark-theme-color;
+	}
+
+	nav {
+		position: fixed;
+		height: 60px;
+		display: flex !important;
+		align-items: center;
+		justify-content: end;
+		top: 0;
+		width: 100%;
+		padding: 0 10px;
+	}
+  .dark {
+    background-color: var(--dark-theme-color);
+    color: var(--light-theme-color);
+  }
+
+	.dark img {
+		filter: invert(1);
+		image-rendering: pixelated;
+	}
+	nav button {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class={theme}>
+		<nav>
+			<button class="toggle-theme-button">
+				<img src="./src/assets/sun_icon.svg" alt="">
+			</button>
+		</nav>
+    <slot />
+		<script>
+			function toggleTheme(){
+				const element = document.body;
+   			element.classList.toggle("dark");
+			}
+			document.querySelector('.toggle-theme-button').addEventListener('click', toggleTheme)
+		</script>
+  </body>
+</html>
+

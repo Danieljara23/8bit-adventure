@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: 100%;
+  }
+  .nes-container {
+    margin-top: 30px;
+  }
+
+  .input-container {
+    display: flex;
+    gap: 5px;
+    align-items:center;
+    margin-top: 60px;
+  }
+
+  .input-container input {
+    height: 28px;
+  }
+
+  .input-container button {
+    background: white;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    border-radius: 2px
+  }
+
+  .right-answer {
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.4s ease-out, height 0.4s ease-out;
+    padding-bottom: 30px;
+  }
+
+  .right-answer.hidden {
+    opacity: 0;
+    height: 0;
+  }
+
+</style>
+
+<Layout title='Puzzle de placas' theme='dark'>
+  <div class="container">
+    <div class="nes-field">
+      <label for="riddleinput">Respuesta</label>
+      <input type="text" id="riddleinput" class="nes-input">
+    </div>
+    <section class="nes-container is-dark ">
+      <section class="message-list">
+          <section class="message -right">
+            <!-- Balloon -->
+            <div>
+              <div class="nes-balloon from-right is-dark">
+                <p>Al parecer alguien ha estado antes acá y documentó todo lo que encontró.</p>
+                <p>Según veo, toda la información está en <em>documentedData</em> y data la cantidad de datos, yo utilizaría un filtro en tu lugar.</p>
+              </div>
+              <i class="nes-octocat animate"></i>
+            </div>
+            <div>
+              <div class="nes-balloon from-right is-dark right-answer hidden">
+                <p>Lo lograste!!!!!</p>
+              </div>
+              <i class="nes-octocat animate right-answer hidden"></i>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
+  </div>
+</Layout>
+<script>
+  const rigthAnswers = ['fuego']
+   document.querySelector('#riddleinput')?.addEventListener('input', (e)=>{
+    const inputValue = e.target.value.toLowerCase()
+
+    if(rigthAnswers.includes(inputValue)) {
+      document.querySelector('.right-answer').classList.remove('hidden')
+      setTimeout(()=>{
+       window.location.href = '/chest'
+      }, 4000)
+    }
+   })
+  const data = [
+    {
+      letter: "O",
+      color: "black"
+    },
+    {
+      letter: "P",
+      color: "black"
+    },
+    {
+      letter: "F",
+      color: "red"
+    },
+    {
+      letter: "U",
+      color: "red"
+    },
+    {
+      letter: "F",
+      color: "black"
+    },
+    {
+      letter: "G",
+      color: "black"
+    },
+   
+    {
+      letter: "H",
+      color: "black"
+    },
+    {
+      letter: "E",
+      color: "red"
+    },
+    {
+      letter: "J",
+      color: "black"
+    },
+    {
+      letter: "K",
+      color: "black"
+    },
+    {
+      letter: "A",
+      color: "black"
+    },
+    {
+      letter: "G",
+      color: "red"
+    },
+    {
+      letter: "C",
+      color: "black"
+    },
+    {
+      letter: "D",
+      color: "black"
+    },
+    {
+      letter: "L",
+      color: "black"
+    },
+    {
+      letter: "O",
+      color: "red"
+    },
+    {
+      letter: "N",
+      color: "black"
+    },
+    
+    {
+      letter: "R",
+      color: "black"
+    },
+    {
+      letter: "S",
+      color: "black"
+    },
+    {
+      letter: "T",
+      color: "black"
+    }
+  ]
+
+  window.documentedData = data
+</script>

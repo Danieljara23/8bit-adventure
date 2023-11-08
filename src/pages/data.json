@@ -1,0 +1,84 @@
+{
+  "letters": [
+    {
+      "letter": "A",
+      "color": "black"
+    },
+    {
+      "letter": "B",
+      "color": "red"
+    },
+    {
+      "letter": "C",
+      "color": "black"
+    },
+    {
+      "letter": "D",
+      "color": "black"
+    },
+    {
+      "letter": "E",
+      "color": "red"
+    },
+    {
+      "letter": "F",
+      "color": "black"
+    },
+    {
+      "letter": "G",
+      "color": "black"
+    },
+    {
+      "letter": "H",
+      "color": "black"
+    },
+    {
+      "letter": "I",
+      "color": "red"
+    },
+    {
+      "letter": "J",
+      "color": "black"
+    },
+    {
+      "letter": "K",
+      "color": "black"
+    },
+    {
+      "letter": "L",
+      "color": "black"
+    },
+    {
+      "letter": "M",
+      "color": "red"
+    },
+    {
+      "letter": "N",
+      "color": "black"
+    },
+    {
+      "letter": "O",
+      "color": "black"
+    },
+    {
+      "letter": "P",
+      "color": "black"
+    },
+    {
+      "letter": "Q",
+      "color": "red"
+    },
+    {
+      "letter": "R",
+      "color": "black"
+    },
+    {
+      "letter": "S",
+      "color": "black"
+    },
+    {
+      "letter": "T",
+      "color": "black"
+    }
+  ]
+}

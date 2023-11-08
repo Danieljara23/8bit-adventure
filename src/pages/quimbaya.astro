@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+  .container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .clue-wrapper {
+    display: flex;
+  }
+
+  .clue-wrapper p {
+    font-size: 16px;
+  }
+</style>
+
+<Layout title='Portón del templo' theme="dark">
+  <div class="container">
+    <div class="image-wrapper">
+      <img src="./src/assets/ancient_door.svg" alt="Puerta de una templo">
+    </div>
+    <div class="clue-wrapper">
+      <p>Inspecciona detenidamente para abrir la puerta del templo</p>
+    </div>
+  </div>
+</Layout>
+<script>
+  window.toctoc = function toctoc(){
+    window.location.href = '/clock'
+  }
+  console.clear()
+  let msg = "%c Bienvenid@ 👋! Para abrir la puerta solo debes llamar toctoc"; 
+  let styles= [ 
+      'font-size: 12px', 
+      'font-family: monospace', 
+      'background: white', 
+      'display: inline-block', 
+      'color: black', 
+      'padding: 8px 19px', 
+      'border: 1px dashed;'
+  ].join(';') 
+  console.log(msg, styles);
+</script>
