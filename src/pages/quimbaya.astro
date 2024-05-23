@@ -21,6 +21,16 @@ import ancientDoor from '../assets/ancient_door.svg'
   .clue-wrapper p {
     font-size: 16px;
   }
+
+  .clue-wrapper .highlight {
+    animation: bounce2 2s ease infinite;
+  }
+
+  @keyframes bounce2 {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+  }
 </style>
 
 <Layout title='Portón del templo' theme="dark">
@@ -29,7 +39,7 @@ import ancientDoor from '../assets/ancient_door.svg'
       <img src={ancientDoor.src} alt="Puerta de una templo">
     </div>
     <div class="clue-wrapper">
-      <p>Inspecciona detenidamente para abrir la puerta del templo</p>
+      <p><span class="highlight">Inspecciona</span> detenidamente para abrir la puerta del templo</p>
     </div>
   </div>
 </Layout>
@@ -38,7 +48,7 @@ import ancientDoor from '../assets/ancient_door.svg'
     window.location.href = '/8bit-adventure/clock'
   }
   console.clear()
-  let msg = "%c Bienvenid@ 👋! Para abrir la puerta solo debes llamar toctoc"; 
+  let msg = "%c Bienvenid@ 👋! Soy una función, mi nombre es toctoc. Para continuar, solo llámame por mi nombre 😊"; 
   let styles= [ 
       'font-size: 12px', 
       'font-family: monospace', 
